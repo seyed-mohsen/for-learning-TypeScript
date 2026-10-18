@@ -29,3 +29,13 @@ const t2 : Task = {id: 2, title: "Write" , done : true};
 
 console.log(describe(t1));
 console.log(describe(t2));
+
+type Status = "todo" | "doing" | "done";
+
+function printStatus(status:Status):string {
+    return "Status: " + status;
+}
+
+console.log(printStatus("todo"));
+console.log(printStatus("doing"));
+console.log(printStatus("done"));
