@@ -72,3 +72,15 @@ function filterByStatus(list:Job[], status: Status): Job[] {
 const doneJobs = filterByStatus(jobs, "done");
 console.log(doneJobs.length);
 console.log(doneJobs.map((job) => job.title));
+
+
+
+
+
+
+function countByStatus (list:Job[] , status : Status): number{
+    return list.filter((job) => job.status === status).length;
+}
+
+const doneCount = countByStatus(jobs, "done");
+console.log(doneCount);
