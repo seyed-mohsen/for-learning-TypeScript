@@ -45,6 +45,7 @@ interface Job {
     id: number;
     title: string;
     status: Status;
+    dueDate?: string ;
 }
 
 function describeJob(job: Job): string {
@@ -84,3 +85,16 @@ function countByStatus (list:Job[] , status : Status): number{
 
 const doneCount = countByStatus(jobs, "done");
 console.log(doneCount);
+
+
+const j3: Job = { id : 5 , title : "No date job" , status : "todo"} ; 
+function showDate (job : Job ) : string {
+    return job.dueDate?.toUpperCase() ?? "No date";
+}
+
+console.log(showDate(j3));
+
+
+const j4: Job = { id: 6, title: "Has date", status: "doing", dueDate: "soon" };
+
+console.log(showDate(j4));
