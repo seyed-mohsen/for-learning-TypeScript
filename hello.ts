@@ -116,3 +116,14 @@ function showEmail(user : User) : string {
 console.log(showEmail(u1));
 console.log(showEmail(u2));
 console.log(showEmail(u3));
+
+
+function findJobById (list : Job[] , id : number) : Job | undefined{
+    return list.find( (job) => job.id === id) ;
+}
+
+
+const job1 = findJobById(jobs, 1);
+const job99 = findJobById(jobs, 99);
+console.log(job1?.title ?? "Not found");
+console.log(job99?.title ?? "Not found");
