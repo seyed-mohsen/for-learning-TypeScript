@@ -98,3 +98,21 @@ console.log(showDate(j3));
 const j4: Job = { id: 6, title: "Has date", status: "doing", dueDate: "soon" };
 
 console.log(showDate(j4));
+
+
+interface User {
+    name : string ; 
+    email? : string | null;
+}
+
+const u1 : User = { name : "Ali" , email : null};
+const u2 : User = { name : "Sara" , email : "Sara@Gmail.Com"};
+const u3 : User = { name : "Amir"};
+
+function showEmail(user : User) : string {
+    return user.email?.toLowerCase() ?? "No email";
+}
+
+console.log(showEmail(u1));
+console.log(showEmail(u2));
+console.log(showEmail(u3));
