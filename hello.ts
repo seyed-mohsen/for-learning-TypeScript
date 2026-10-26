@@ -145,3 +145,15 @@ console.log(firstName);
 console.log(firstJob?.title);
 
 
+function updateJob(job: Job, changes: Partial<Job>): Job {
+  return { ...job, ...changes };
+}
+
+type JobSummary = Pick<Job, "id" | "title">;
+
+const original: Job = { id: 10, title: "Old title", status: "todo" };
+const updated = updateJob(original, { status: "done" });
+const summary: JobSummary = { id: 10, title: "Short" };
+
+console.log(updated);
+console.log(summary);
