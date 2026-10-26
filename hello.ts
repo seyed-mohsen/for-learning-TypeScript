@@ -157,3 +157,16 @@ const summary: JobSummary = { id: 10, title: "Short" };
 
 console.log(updated);
 console.log(summary);
+
+
+
+
+
+
+const counts: Record<Status, number> = {
+  todo: countByStatus(jobs, "todo"),
+  doing: countByStatus(jobs, "doing"),
+  done: countByStatus(jobs, "done"),
+};
+
+console.log(counts);
