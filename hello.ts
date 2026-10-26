@@ -2,15 +2,15 @@ function greet(name: string): string {
     return "Hello, " + name;
 }
 
-console.log(greet("Ali"));
-console.log(greet("AmirM"));
+// console.log(greet("Ali"));
+// console.log(greet("AmirM"));
 
 
 function add(a: number, b: number): number {
     return a + b;
 }
 
-console.log(add(2, 3));
+// console.log(add(2, 3));
 
 
 interface Task {
@@ -27,8 +27,8 @@ const t1: Task = { id: 1, title: "Learn typescript", done: false };
 const t2: Task = { id: 2, title: "Write", done: true };
 
 
-console.log(describe(t1));
-console.log(describe(t2));
+// console.log(describe(t1));
+// console.log(describe(t2));
 
 type Status = "todo" | "doing" | "done";
 
@@ -36,9 +36,9 @@ function printStatus(status: Status): string {
     return "Status: " + status;
 }
 
-console.log(printStatus("todo"));
-console.log(printStatus("doing"));
-console.log(printStatus("done"));
+// console.log(printStatus("todo"));
+// console.log(printStatus("doing"));
+// console.log(printStatus("done"));
 
 
 interface Job {
@@ -56,8 +56,8 @@ const j1: Job = { id: 1, title: "Learn unions", status: "doing" };
 const j2: Job = { id: 2, title: "Write tests", status: "done" };
 
 
-console.log(describeJob(j1));
-console.log(describeJob(j2));
+// console.log(describeJob(j1));
+// console.log(describeJob(j2));
 
 const jobs: Job[] = [
     { id: 1, title: "Learn unions", status: "doing" },
@@ -71,8 +71,8 @@ function filterByStatus(list:Job[], status: Status): Job[] {
 }
 
 const doneJobs = filterByStatus(jobs, "done");
-console.log(doneJobs.length);
-console.log(doneJobs.map((job) => job.title));
+// console.log(doneJobs.length);
+// console.log(doneJobs.map((job) => job.title));
 
 
 
@@ -92,12 +92,12 @@ function showDate (job : Job ) : string {
     return job.dueDate?.toUpperCase() ?? "No date";
 }
 
-console.log(showDate(j3));
+// console.log(showDate(j3));
 
 
 const j4: Job = { id: 6, title: "Has date", status: "doing", dueDate: "soon" };
 
-console.log(showDate(j4));
+// console.log(showDate(j4));
 
 
 interface User {
@@ -113,9 +113,9 @@ function showEmail(user : User) : string {
     return user.email?.toLowerCase() ?? "No email";
 }
 
-console.log(showEmail(u1));
-console.log(showEmail(u2));
-console.log(showEmail(u3));
+// console.log(showEmail(u1));
+// console.log(showEmail(u2));
+// console.log(showEmail(u3));
 
 
 function findJobById (list : Job[] , id : number) : Job | undefined{
@@ -125,5 +125,23 @@ function findJobById (list : Job[] , id : number) : Job | undefined{
 
 const job1 = findJobById(jobs, 1);
 const job99 = findJobById(jobs, 99);
-console.log(job1?.title ?? "Not found");
-console.log(job99?.title ?? "Not found");
+// console.log(job1?.title ?? "Not found");
+// console.log(job99?.title ?? "Not found");
+
+
+
+
+
+function first<T>(list : T[]) : T | undefined {
+    return list[0] ;
+}
+
+const firstNumber = first([10, 20, 30]);
+const firstName = first(["Ali", "Sara"]);
+const firstJob = first(jobs);
+
+console.log(firstNumber);
+console.log(firstName);
+console.log(firstJob?.title);
+
+
