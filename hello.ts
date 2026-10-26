@@ -140,9 +140,9 @@ const firstNumber = first([10, 20, 30]);
 const firstName = first(["Ali", "Sara"]);
 const firstJob = first(jobs);
 
-console.log(firstNumber);
-console.log(firstName);
-console.log(firstJob?.title);
+// console.log(firstNumber);
+// console.log(firstName);
+// console.log(firstJob?.title);
 
 
 function updateJob(job: Job, changes: Partial<Job>): Job {
@@ -155,8 +155,8 @@ const original: Job = { id: 10, title: "Old title", status: "todo" };
 const updated = updateJob(original, { status: "done" });
 const summary: JobSummary = { id: 10, title: "Short" };
 
-console.log(updated);
-console.log(summary);
+// console.log(updated);
+// console.log(summary);
 
 
 
@@ -169,4 +169,19 @@ const counts: Record<Status, number> = {
   done: countByStatus(jobs, "done"),
 };
 
-console.log(counts);
+// console.log(counts);
+
+
+
+function last<T>(list : T[]) : T | undefined {
+    const listLength = list.length;
+    return list[listLength-1] ;
+}
+const lastNumber = last([10, 20, 30]);
+const lastName = last(["Ali", "Sara"]);
+const lastJob = last(jobs);
+
+console.log(lastNumber ?? "Empty");
+console.log(lastName ?? "Empty");
+console.log(lastJob?.title ?? "Empty");
+
