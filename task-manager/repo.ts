@@ -1,6 +1,7 @@
 import { pool } from "./db.js";
 import type { Status, Task } from "./tasks.js";
 
+export class NotFoundError extends Error {}
 export async function createTask(title: string): Promise<Task> {
   const trimmed = title.trim();
   if (trimmed === "") {
@@ -23,14 +24,14 @@ export async function changeStatus(id: number, status: Status): Promise<void> {
     [status, id]
   );
   if (result.rowCount === 0) {
-    throw new Error("Task not found: " + id);
+    throw new NotFoundError("Task not found: " + id);
   }
 }
 
 export async function deleteTask(id: number): Promise<void> {
   const result = await pool.query("DELETE FROM tasks WHERE id = $1", [id]);
   if (result.rowCount === 0) {
-    throw new Error("Task not found: " + id);
+    throw new NotFoundError("Task not found: " + id);
   }
 }
 
